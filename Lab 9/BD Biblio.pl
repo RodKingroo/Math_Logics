@@ -1,25 +1,25 @@
 :-dynamic
         book/4.
-/* Запуск программы */
+/* Р—Р°РїСѓСЃРє РїСЂРѕРіСЂР°РјРјС‹ */
 run:-
      retractall(book/4),
      consult('db.txt'),
      menu.
 
-/* Формирование меню */
+/* Р¤РѕСЂРјРёСЂРѕРІР°РЅРёРµ РјРµРЅСЋ */
 menu:-
       repeat,
       write('*********************'),nl,
-      write('* Список литературы *'),nl,
+      write('* РЎРїРёСЃРѕРє Р»РёС‚РµСЂР°С‚СѓСЂС‹ *'),nl,
       write('*********************'),nl,
-      write('1 – Просмотр записей в БД'),nl,
-      write('2 – Добавить в БД'),nl,
-      write('3 - Удалить из БД'),nl,
-      write('4 - Сохранить базу в файл'),nl,
-      write('5 - Поиск по автору'),nl,
-      write('6 - Поиск по названию'),nl,
-      write('7 – Выход'),nl,nl,
-      write('Выберите пункт меню: (1-6) '),
+      write('1 вЂ“ РџСЂРѕСЃРјРѕС‚СЂ Р·Р°РїРёСЃРµР№ РІ Р‘Р”'),nl,
+      write('2 вЂ“ Р”РѕР±Р°РІРёС‚СЊ РІ Р‘Р”'),nl,
+      write('3 - РЈРґР°Р»РёС‚СЊ РёР· Р‘Р”'),nl,
+      write('4 - РЎРѕС…СЂР°РЅРёС‚СЊ Р±Р°Р·Сѓ РІ С„Р°Р№Р»'),nl,
+      write('5 - РџРѕРёСЃРє РїРѕ Р°РІС‚РѕСЂСѓ'),nl,
+      write('6 - РџРѕРёСЃРє РїРѕ РЅР°Р·РІР°РЅРёСЋ'),nl,
+      write('7 вЂ“ Р’С‹С…РѕРґ'),nl,nl,
+      write('Р’С‹Р±РµСЂРёС‚Рµ РїСѓРЅРєС‚ РјРµРЅСЋ: (1-6) '),
       read(X),
       X<8,
       process(X),
@@ -35,30 +35,30 @@ process(7):-retractall(book/4),!.
 
 viewing_book:-
                 book(Num,Name,Author,Time_comertion),
-                write('№ книги: '), write(Num),nl,
-                write('Название: '), write(Name),nl,
-                write('Автор: '), write(Author),nl,
-                write('Год издания: '), write(Time_comertion),nl,
+                write('в„– РєРЅРёРіРё: '), write(Num),nl,
+                write('РќР°Р·РІР°РЅРёРµ: '), write(Name),nl,
+                write('РђРІС‚РѕСЂ: '), write(Author),nl,
+                write('Р“РѕРґ РёР·РґР°РЅРёСЏ: '), write(Time_comertion),nl,
                 write('-------------------------------'),nl.
 
 to_add:-
         write('*******************'),nl,
-        write('* Добавить книгу*'),nl,
+        write('* Р”РѕР±Р°РІРёС‚СЊ РєРЅРёРіСѓ*'),nl,
         write('*******************'),nl,
         repeat,
-        write('Номер книги: '),
+        write('РќРѕРјРµСЂ РєРЅРёРіРё: '),
         read(Num),
-        write('Название: '),
+        write('РќР°Р·РІР°РЅРёРµ: '),
         read(Name),
-        write('Автор: '),
+        write('РђРІС‚РѕСЂ: '),
         read(Author),
-        write('Год издания: '),
+        write('Р“РѕРґ РёР·РґР°РЅРёСЏ: '),
         read(Time_comertion),
         assertz(book(Num,Name,Author,Time_comertion)),
         quest,!.
 
 quest:-
-       write('Продолжить ввод? y/n '),
+       write('РџСЂРѕРґРѕР»Р¶РёС‚СЊ РІРІРѕРґ? y/n '),
        read(A),
        answer(A).
 
@@ -70,33 +70,33 @@ db_save:-
         tell('db.txt'),
         listing(book/4),
         told,
-        write('Файл базы данных db.txt сохранен!'),nl,nl.
+        write('Р¤Р°Р№Р» Р±Р°Р·С‹ РґР°РЅРЅС‹С… db.txt СЃРѕС…СЂР°РЅРµРЅ!'),nl,nl.
 
 to_remove:-
            write('******************'),nl,
-           write('* Удаление записи *'),nl,
+           write('* РЈРґР°Р»РµРЅРёРµ Р·Р°РїРёСЃРё *'),nl,
            write('******************'),nl,
-           write('Введите № Книги: '),
+           write('Р’РІРµРґРёС‚Рµ в„– РљРЅРёРіРё: '),
            read(Num),
            retract(book(Num,_,_,_)),
-           write('Запись удалена!!!'),nl,nl.
+           write('Р—Р°РїРёСЃСЊ СѓРґР°Р»РµРЅР°!!!'),nl,nl.
 
 to_find_name:-
          write('-------------------------------------------------------'),nl,
-         write('Введите Название книги: '),
+         write('Р’РІРµРґРёС‚Рµ РќР°Р·РІР°РЅРёРµ РєРЅРёРіРё: '),
          read(NameSearch),
          search_name(NameSearch,Search_to_Name),
-         write('Книга найдена: '),
+         write('РљРЅРёРіР° РЅР°Р№РґРµРЅР°: '),
          write(Search_to_Name),nl,
          write('-------------------------------------------------------'),nl,
          fail.
 
 to_find_author:-
          write('-------------------------------------------------------'),nl,
-         write('Введите Автора книги: '),
+         write('Р’РІРµРґРёС‚Рµ РђРІС‚РѕСЂР° РєРЅРёРіРё: '),
          read(NameSearch),
          search_author(NameSearch,Search_to_Author),
-         write('Книга найдена: '),
+         write('РљРЅРёРіР° РЅР°Р№РґРµРЅР°: '),
          write(Search_to_Author),nl,
          write('-------------------------------------------------------'),nl,
          fail.
