@@ -7,24 +7,24 @@
 db_run :-
 
 
-new(MyWin, dialog('БД Библиотеки')),
+new(MyWin, dialog('ГЃГ„ ГЃГЁГЎГ«ГЁГ®ГІГҐГЄГЁ')),
 send_list(MyWin, append, [
-                     new(Author,text_item('Автор')),
-                     new(Name,text_item('Название')),
+                     new(Author,text_item('ГЂГўГІГ®Г°')),
+                     new(Name,text_item('ГЌГ Г§ГўГ Г­ГЁГҐ')),
                      new(MyListAuthor, list_browser),
                      new(MyListName, list_browser),
 
-                      button('Весь ассортимент', message(@prolog,
+                      button('Г‚ГҐГ±Гј Г Г±Г±Г®Г°ГІГЁГ¬ГҐГ­ГІ', message(@prolog,
                                      output, MyListAuthor)),
-                     button('Найти по автору', message(@prolog,
+                     button('ГЌГ Г©ГІГЁ ГЇГ® Г ГўГІГ®Г°Гі', message(@prolog,
                                      output_author, MyListAuthor, Author?selection )),
-                     button('Найти по книге', message(@prolog,
+                     button('ГЌГ Г©ГІГЁ ГЇГ® ГЄГ­ГЁГЈГҐ', message(@prolog,
                                      output_name, MyListName, Name?selection )),
-                     button('Добавить', message(@prolog,
+                     button('Г„Г®ГЎГ ГўГЁГІГј', message(@prolog,
                                                 add_to, MyWin,
                                                 Author?selection,
                                                 Name?selection )),
-                     button(выход, message(MyWin, destroy))
+                     button(ГўГ»ГµГ®Г¤, message(MyWin, destroy))
 ]),
 send(MyListAuthor, alignment,left),
 send(MyListName, alignment, left),
