@@ -77,3 +77,9 @@
 Определите, кто где живет, и запишите начальные буквы имен жильцов всех домов слева направо.
 ```
 [Решение](https://github.com/RodKingroo/Math_Logics/blob/main/LIPS/Lab%202.6.lisp)
+
+---------------------------------------
+### Лабораторная работа 2.7 - Мозгодробильные задачи по спискам на lisp
+
+Решить три задачи (на выбор) из подборки https://www.stepanoff.info/lisp/materials/lab2.pdf.\
+### [Решение](https://github.com/RodKingroo/Math_Logics/tree/main/LIPS/lab%207)
