@@ -83,3 +83,11 @@
 
 Решить три задачи (на выбор) из подборки https://www.stepanoff.info/lisp/materials/lab2.pdf.\
 ### [Решение](https://github.com/RodKingroo/Math_Logics/tree/main/LIPS/lab%207)
+
+--------------------------------------
+### Лабораторная работа 2.8 - Рекурсия в Elixir
+Написать на языке Elixir функцию для вычисления суммы ряда (по варианту, см. № в списке группы)
+![Image a](https://i.ibb.co/mXLzDtB/image.png) 
+
+##### [Решение](https://github.com/RodKingroo/Math_Logics/blob/main/elixir/Lab%2010.ex)
+
